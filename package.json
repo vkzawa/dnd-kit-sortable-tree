@@ -1,6 +1,6 @@
 {
-  "name": "dnd-kit-sortable-tree",
-  "version": "0.1.43",
+  "name": "@ce/dnd-kit-sortable-tree",
+  "version": "0.1.44-alpha.4",
   "license": "MIT",
   "homepage": "https://github.com/shaddix/dnd-kit-sortable-tree#readme",
   "main": "dist/index.js",
@@ -20,6 +20,9 @@
   ],
   "engines": {
     "node": ">=10"
+  },
+  "publishConfig": {
+    "registry": "http://pkg.creativengine.com"
   },
   "scripts": {
     "storybook": "start-storybook -p 6016",

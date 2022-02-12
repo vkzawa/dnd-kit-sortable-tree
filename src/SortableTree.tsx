@@ -248,7 +248,7 @@ export function SortableTree<
               />
             ) : null}
           </DragOverlay>,
-          document.body
+          document && document.body
         )}
       </SortableContext>
     </DndContext>
@@ -267,7 +267,7 @@ export function SortableTree<
       });
     }
 
-    document.body.style.setProperty('cursor', 'grabbing');
+    document && document.body.style.setProperty('cursor', 'grabbing');
   }
 
   function handleDragMove({ delta }: DragMoveEvent) {
@@ -305,7 +305,7 @@ export function SortableTree<
     setOffsetLeft(0);
     setCurrentPosition(null);
 
-    document.body.style.setProperty('cursor', '');
+    document && document.body.style.setProperty('cursor', '');
   }
 
   function getMovementAnnouncement(

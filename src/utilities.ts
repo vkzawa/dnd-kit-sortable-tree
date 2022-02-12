@@ -2,7 +2,7 @@ import { arrayMove } from '@dnd-kit/sortable';
 
 import type { FlattenedItem, TreeItem, TreeItems } from './types';
 
-export const iOS = /iPad|iPhone|iPod/.test(navigator.platform);
+export const iOS = false;
 
 function getDragDepth(offset: number, indentationWidth: number) {
   return Math.round(offset / indentationWidth);
@@ -108,7 +108,6 @@ function flatten<T>(
   items: TreeItems<T>,
   parentId: string | null = null,
   depth = 0,
-  parent: FlattenedItem<T> | null = null
 ): FlattenedItem<T>[] {
   return items.reduce<FlattenedItem<T>[]>((acc, item, index) => {
     const flattenedItem = {
@@ -117,12 +116,12 @@ function flatten<T>(
       depth,
       index,
       isLast: items.length === index + 1,
-      parent: parent,
+      parent: null,
     };
     return [
       ...acc,
       flattenedItem,
-      ...flatten(item.children ?? [], item.id, depth + 1, flattenedItem),
+      ...flatten(item.children ?? [], item.id, depth + 1),
     ];
   }, []);
 }
